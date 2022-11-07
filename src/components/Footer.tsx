@@ -1,4 +1,4 @@
-import { Box, Link, Stack, Text } from '@chakra-ui/react';
+import { Box, Link, UnorderedList, ListItem, Stack, Text } from '@chakra-ui/react';
 
 export const Footer = ({ email }: { email: string }) => {
   return (
@@ -12,8 +12,12 @@ export const Footer = ({ email }: { email: string }) => {
         <Text fontSize={'2xl'}>株式会社○○</Text>
         <Text fontSize={'2xl'}>{email}</Text>
       </Stack>
-      <Stack direction='row'>
-        <Link href='/terms'>プライバシーポリシー</Link>
+      <Stack mx='auto' maxW='container.xl' direction='column'>
+        <UnorderedList>
+          <Link href='/terms'>
+            <ListItem>プライバシーポリシー</ListItem>
+          </Link>
+        </UnorderedList>
       </Stack>
     </Box>
   );
