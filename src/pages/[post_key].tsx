@@ -17,14 +17,15 @@ import { Footer } from '../components/Footer';
 
 const Home = () => {
   const router = useRouter();
-  const { data } = useSWR<AxiosResponse<Post[]>>(
+  const { data, error } = useSWR<AxiosResponse<Post[]>>(
     '/api/post',
     async () => await axios.get('/api/post')
   );
   const post = (data?.data ?? []).find(
     ({ key }) => key === router.query.post_key
   );
-  if (!post) return <>Not Found</>;
+  if (!data && !error) return <>Loading...</>;
+  else if (!post) return <>Not Found</>;
   return (
     <Stack minH='100vh' justifyContent='space-between'>
       <Container py={5}>

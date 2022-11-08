@@ -141,7 +141,7 @@ const Home = () => {
               <Text fontSize='xl'>{post.subTitle}</Text>
               <Text>{post.body}</Text>
               <Text textAlign='right'>
-                公開日: {dayjs(post.publishedAt).format('YYYY年MM月DD日')}
+                公開日: {post.publishedAt.split('T')[0]}
               </Text>
             </Box>
           ))}
