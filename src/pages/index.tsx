@@ -88,7 +88,7 @@ const Home = () => {
         <Text fontSize='5xl'>サブタイトル</Text>
       </Container>
 
-      <MainImage text='○○'></MainImage>
+      <MainImage text='○○' />
 
       <Container maxW='container.xl' py={30}>
         <Stack direction='row' gap={25} justifyContent='center'>
@@ -148,13 +148,19 @@ const Home = () => {
         </Box>
       </Container>
 
-      <Grid pt={15} pr={10} templateColumns='repeat(10, 1fr)' gap={10}>
+      <Grid maxW='100vw' pt={15} templateColumns='repeat(10, 1fr)'>
         <GridItem colSpan={6}>
-          <Image display='block' src='/c.webp' boxSize='100%' alt='参考画像' />
+          <Image src='/c.webp' boxSize='100%' alt='参考画像' />
         </GridItem>
+        <GridItem colSpan={1} />
         <GridItem colSpan={3}>
-          <Stack whiteSpace='pre'>
-            <Heading mt={5} mb={10} fontWeight={500} fontSize={45}>
+          <Stack whiteSpace='break-spaces'>
+            <Heading
+              mt={5}
+              mb={10}
+              fontWeight={500}
+              fontSize={{ base: 25, md: 45 }}
+            >
               会社概要
             </Heading>
             <Text fontSize={20}>企業名: ○○</Text>
@@ -166,7 +172,7 @@ const Home = () => {
       </Grid>
 
       <Container maxW='container.xl' pt={15}>
-        <Heading fontSize={40}>お問い合わせ</Heading>
+        <Heading fontSize={30}>お問い合わせ</Heading>
         <Divider mb={5} />
         <Text mb={5}>
           ご不明点等ございましたら以下のフォームまたは
