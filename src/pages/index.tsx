@@ -1,5 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
 import type { Post } from './api/post';
+import axios, { AxiosResponse } from 'axios';
+import dayjs from 'dayjs';
 import Head from 'next/head';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -140,7 +141,7 @@ const Home = () => {
               <Text fontSize='xl'>{post.subTitle}</Text>
               <Text>{post.body}</Text>
               <Text textAlign='right'>
-                公開日: {post.publishedAt.split('T')[0]}
+                公開日: {dayjs(post.publishedAt).format('YYYY年MM月DD日')}
               </Text>
             </Box>
           ))}

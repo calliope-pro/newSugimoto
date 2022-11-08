@@ -23,7 +23,7 @@ export default async function handler(
         title: 'タイトル',
         subTitle: 'サブタイトル',
         body: '内容',
-        publishedAt: dayjs().toISOString(),
+        publishedAt: dayjs().add(9, 'h').toISOString(),
       } as Post,
       'INIT__KEY'
     );
@@ -32,7 +32,7 @@ export default async function handler(
   if (req.method === 'GET') {
     const posts = (
       await post_db.fetch({
-        'publishedAt?lte': dayjs().toISOString(),
+        'publishedAt?lte': dayjs().add(9, 'h').toISOString(),
         'publishedAt?contains': 'T',
       })
     ).items as unknown as Post[];
