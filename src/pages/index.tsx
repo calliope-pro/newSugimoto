@@ -64,9 +64,10 @@ const Home = () => {
     formState: { errors },
   } = useForm<FormDataType>({ mode: 'onChange' });
 
-  async function onSubmit({ name, email, text }: FormDataType) {
+  async function onSubmit(payload: FormDataType) {
     try {
       setIsLoading(true);
+      await axios.post('/api/email', payload);
       reset();
     } catch (error) {
     } finally {
@@ -230,4 +231,3 @@ const Home = () => {
 };
 
 export default Home;
-
